@@ -20,7 +20,7 @@ function onButtonPress() {
    <div class="row mt-3 justify-content-center">
       <div class="col-md-6">
          <div class="card">
-            <div class="card-header">
+            <div class="card-header fw-bold">
                New Domain
             </div>
             <div class="card-body">

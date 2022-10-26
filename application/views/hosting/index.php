@@ -45,7 +45,7 @@ function onButtonPress() {
                   <li><?php echo database($plan->num_database) ?> Available Database</li>
                   <li><?php echo subdomain($plan->has_subdomain) ?> Available Subdomain</li>
                </ul>
-               <a href="<?= base_url(); ?>hosting/add" class="w-100 btn btn-lg btn-primary">Mulai</a>
+               <a href="<?= base_url(); ?>domain/add" class="w-100 btn btn-lg btn-primary">Mulai</a>
             </div>
          </div>
       </div>

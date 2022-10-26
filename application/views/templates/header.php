@@ -153,14 +153,10 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-               <a class="me-3 py-2 text-dark text-decoration-none"
-                  href="https://getbootstrap.com/docs/5.2/examples/pricing/#">Features</a>
-               <a class="me-3 py-2 text-dark text-decoration-none"
-                  href="https://getbootstrap.com/docs/5.2/examples/pricing/#">Enterprise</a>
-               <a class="me-3 py-2 text-dark text-decoration-none"
-                  href="https://getbootstrap.com/docs/5.2/examples/pricing/#">Support</a>
-               <a class="py-2 text-dark text-decoration-none"
-                  href="https://getbootstrap.com/docs/5.2/examples/pricing/#">Pricing</a>
+               <a class="me-3 py-2 text-dark text-decoration-none fw-semibold"
+                  href="<?php echo base_url() ?>domain">Your Domain</a>
+               <a class="py-2 text-dark text-decoration-none fw-semibold"
+                  href="<?php echo base_url() ?>hosting">Pricing</a>
             </ul>
          </div>
       </div>
