@@ -6,7 +6,7 @@ function onButtonPress() {
 
 <div class="container">
    <?php if ($this->session->flashdata('flash') ) : ?>
-   <div class="row mt-3">
+   <div class="row mt-3 justify-content-center">
       <div class="col-md-6">
          <div class="alert alert-success alert-dismissible fade show" role="alert">
             Data <strong><?= $this->session->flashdata('flash'); ?></strong> succesfully.
