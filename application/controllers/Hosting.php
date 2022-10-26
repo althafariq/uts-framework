@@ -20,7 +20,7 @@ class Hosting extends CI_Controller {
       $this->form_validation->set_rules('nama_hosting', 'Hosting Name', 'required');
       $this->form_validation->set_rules('has_cpanel', 'cPanel', 'required');
       $this->form_validation->set_rules('has_ssl', 'SSL', 'required');
-      $this->form_validation->set_rules('has_subdomain', 'Subdomain', 'required');
+      $this->form_validation->set_rules('has_subdomain', 'Subdomain', 'required|numeric');
       $this->form_validation->set_rules('has_storage', 'Storage', 'required|numeric');
       $this->form_validation->set_rules('num_database', 'Database', 'required|numeric');
       $this->form_validation->set_rules('harga', 'Price', 'required|numeric');
