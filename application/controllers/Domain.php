@@ -36,19 +36,25 @@ class Domain extends CI_Controller {
          }
    }
 
-   public function edit($id){
+   public function edit($id = ''){
       $data['title'] = 'Edit Your Domain';
       $data['domain'] = $this->Domain_model->getById($id);
 
       $this->form_validation->set_rules('nama_domain', 'Name Domain', 'required');
-      $this->form_validation->set_rules('nama_domain', 'Domain Name', 'callback_checknameExists');
       
       if ($this->form_validation->run() == FALSE) {
          $this->templates->display('domain/edit', $data);
       } else { 
-         $this->Domain_model->editDomain($id);
-         // $this->session->set_flashdata('flash', "edited");
-         redirect('domain');
+         $keyword = $this->input->post('nama_domain', true);
+         $checkvalidation = $this->Domain_model->duplicatedDomain($keyword);
+         if ($checkvalidation == TRUE) {
+            $this->Domain_model->editDomain($id);
+            $this->session->set_flashdata('flash', "edited");
+            redirect('domain');
+         } else {
+            $this->session->set_flashdata('flash', "Domain already taken");
+            redirect('domain/edit/' . $id);
+         }
       }
    }
 
@@ -58,7 +64,4 @@ class Domain extends CI_Controller {
       redirect('domain');
    }
 
-   public function checknameExists($keyword) {
-      $this->Domain_model->duplicateName($keyword);
-   }
 }

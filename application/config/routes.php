@@ -52,3 +52,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'hosting';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['domain/edit/(:any)'] = 'domain/edit/$1';

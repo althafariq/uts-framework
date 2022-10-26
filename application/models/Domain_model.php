@@ -31,6 +31,16 @@ class Domain_model extends CI_Model {
       }
    }
 
+   public function duplicateName($keyword){
+      $this->db->where('nama_domain', $keyword);
+      $sql = $this->db->get('domain');
+      if ($sql->num_rows() > 0) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
    public function editDomain($id) {
       $data = [
          "nama_domain" => $this->input->post('nama_domain', true)
