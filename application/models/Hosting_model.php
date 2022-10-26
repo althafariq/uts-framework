@@ -8,31 +8,18 @@ class Hosting_model extends CI_Model {
       return $this->db->query($sql)->result();
    }
 
-   public function insertDomain() {
+   public function insertHosting() {
       $data = [
-         "nama_domain" => $this->input->post('nama_domain', true),
+         "nama_hosting" => $this->input->post('nama_hosting', true),
+         "has_cpanel" => $this->input->post('has_cpanel', true),
+         "has_ssl" => $this->input->post('has_ssl', true),
+         "has_subdomain" => $this->input->post('has_subdomain', true),
+         "has_storage" => $this->input->post('has_storage', true),
+         "num_database" => $this->input->post('num_database', true),
+         "harga" => $this->input->post('harga', true),
       ];
 
-      $this->db->insert('domain', $data);
+      $this->db->insert('hosting', $data);
    }
 
-   public function duplicatedDomain($keyword) {
-      $this->db->where('nama_domain', $keyword);
-      $sql = $this->db->get('domain');
-      if ($sql->num_rows() > 0) {
-         return false;
-      } else {
-         return true;
-      }
-   }
-
-   public function duplicateName($keyword) {
-      $this->db->where('nama_domain', $keyword);
-      $sql = $this->db->get('domain');
-      if ($sql->num_rows() > 0) {
-         return true;
-      } else {
-         return false;
-      }
-   }
 }

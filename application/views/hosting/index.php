@@ -109,5 +109,12 @@ function onButtonPress() {
             </tr>
          </tbody>
       </table>
+
+      <!-- <div class="d-flex justify-content-center">
+         <div class="pt-2">
+            <a href="<?= base_url(); ?>hosting/add" class="btn btn-primary">Insert New Plan</a>
+         </div> -->
+
    </div>
+</div>
 </div>

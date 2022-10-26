@@ -15,25 +15,25 @@ class Hosting extends CI_Controller {
    }
 
    public function add(){
-      $data['title'] = 'Add New Domain';
+      $data['title'] = 'Add New Plan';
 
-      $this->form_validation->set_rules('nama_domain', 'Name Domain', 'required');
+      $this->form_validation->set_rules('nama_hosting', 'Hosting Name', 'required');
+      $this->form_validation->set_rules('has_cpanel', 'cPanel', 'required');
+      $this->form_validation->set_rules('has_ssl', 'SSL', 'required');
+      $this->form_validation->set_rules('has_subdomain', 'Subdomain', 'required');
+      $this->form_validation->set_rules('has_storage', 'Storage', 'required|numeric');
+      $this->form_validation->set_rules('num_database', 'Database', 'required|numeric');
+      $this->form_validation->set_rules('harga', 'Price', 'required|numeric');
       
       
       if ($this->form_validation->run() == FALSE) {
           $this->templates->display('hosting/add', $data);
       } else {
-         $keyword = $this->input->post('nama_domain', true);
-         $checkvalidation = $this->Hosting_model->duplicatedDomain($keyword);
-            if ($checkvalidation == TRUE) {
-               $this->Hosting_model->insertDomain();
-               $this->session->set_flashdata('flash', "added");
-               redirect('hosting');
-            } else {
-               $this->session->set_flashdata('flash', "Domain already taken");
-               redirect('hosting/add');
-            }
-      }
+         $this->Hosting_model->insertHosting();
+         $this->session->set_flashdata('flash', "added");
+         redirect('hosting');
+      } 
+   
   }
 }
 
